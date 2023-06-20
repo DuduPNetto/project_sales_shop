@@ -1,20 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'stores/css/style.css' %}">
-    <title>Document</title>
-</head>
+{% include 'stores/partials/_head.html' %}
 <body>
-    <section class="section employees">
-        {% for employee in employees %}
-            <div class="employee-card">
-                <h1 class="employee-name">{{ employee.name }}</h1>
-                <h2 class="employee-function">{{ employee.function }}</h2>
-            </div>
-        {% endfor %}
-    </section>
+    {% include 'stores/partials/_employee.html' %}
 </body>
 </html>
