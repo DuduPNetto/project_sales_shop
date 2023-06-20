@@ -27,7 +27,7 @@ ul {
 }
 
 .section {
-    height: 85vh;
+    display: block;
     background-color: var(--bg-color);
 }
 
@@ -38,6 +38,7 @@ ul {
 .employee-card {
     padding: 1.5rem;
     margin: 1.5rem;
+    height: 5rem;
     background-color: var(--container-color);
     display: flex;
     border-radius: 15px;
@@ -48,6 +49,7 @@ ul {
 
 .employee-name,
 .employee-function {
+    color: var(--first-color);
     text-align: center;
 }
 
@@ -57,4 +59,18 @@ ul {
 
 .employee-function {
     font-size: var(--h2-font-size);
+}
+
+.links {
+    background-color: var(--container-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.links a {
+    padding: 1rem 2rem;
+    background-color: var(--bg-color);
+    border-radius: 30px;
+    color: var(--first-color);
 }
