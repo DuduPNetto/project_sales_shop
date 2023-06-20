@@ -38,5 +38,8 @@
     "python.defaultInterpreterPath": "./venv/bin/python",
     "python.analysis.typeCheckingMode": "basic",
     "python.formatting.provider": "none",
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "emmet.includeLanguages": {
+      "django-html": "html",
+ }
   }

@@ -1,3 +1,16 @@
 from django.shortcuts import render
+from stores.models import Employee, Store
 
-# Create your views here.
+
+def index(request):
+    employees = Employee.objects.all()
+
+    context = {
+        'employees': employees
+    }
+
+    return render(
+        request,
+        'stores/index.html',
+        context
+    )
