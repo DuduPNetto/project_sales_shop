@@ -5,9 +5,9 @@ from stores.models import Store, Employee
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'function', 'store')
-    list_display_links = ('id', 'name', 'function', 'store')
-    search_fields = ('id', 'name', 'function', 'store')
+    list_display = ('id', 'name', 'function', 'store',)
+    list_display_links = ('id', 'name', 'function', 'store',)
+    search_fields = ('id', 'name', 'function', 'store',)
 
 
 class EmployeeInline(admin.TabularInline):

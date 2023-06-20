@@ -53,12 +53,16 @@ ul {
     text-align: center;
 }
 
-.employee-name {
+.employee-name,
+.employee-function,
+.employee-id {
     font-size: var(--h1-font-size)
 }
 
-.employee-function {
-    font-size: var(--h2-font-size);
+.employee-identify {
+    display: flex;
+    column-gap: 1.5rem;
+    align-items: center;
 }
 
 .links {

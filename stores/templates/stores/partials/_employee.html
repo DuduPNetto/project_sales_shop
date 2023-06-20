@@ -1,7 +1,17 @@
 <section class="section employees">
+    <div class="employee-card">
+        <div class="employee-identify">
+            <h2 class="employee-id">ID</h2>
+            <h1 class="employee-name">NAME</h1>
+        </div>
+        <h2 class="employee-function">FUNCTION</h2>
+    </div>
     {% for employee in employees %}
         <div class="employee-card">
-            <h1 class="employee-name">{{ employee.name }}</h1>
+            <div class="employee-identify">
+                <h2 class="employee-id">{{ employee.id }}</h2>
+                <h1 class="employee-name">{{ employee.name }}</h1>
+            </div>
             <h2 class="employee-function">{{ employee.function }}</h2>
         </div>
     {% endfor %}
