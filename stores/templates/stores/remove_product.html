@@ -3,14 +3,14 @@
     <section class="section">
         <div class="links">
             <a href="{% url 'stores:index' %}">Index</a>
-            <a href="{% url 'stores:add_employee' %}">Add</a>
+            <a href="{% url 'stores:add_product' %}">Add</a>
             <a href="{% url 'stores:logout' %}">Logout</a>
         </div>
     </section>
 
     <section class="section">
         <div class="contact-options">
-            <form action="{% url 'stores:remove_employee' employee.id %}" method="POST">
+            <form action="{% url 'stores:remove_product' product.id %}" method="POST">
                 {% csrf_token %}
                 {% if confirmation == 'no' %}
                     <input type="hidden" name="confirmation" value="yes">

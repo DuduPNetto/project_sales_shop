@@ -78,3 +78,41 @@ ul {
     border-radius: 30px;
     color: var(--first-color);
 }
+
+.details {
+    text-align: center;
+    justify-content: center;
+}
+
+.detail-name {
+    color: var(--first-color);
+    font-size: var(--h1-font-size);
+}
+
+.detail-age,
+.detail-function,
+.detail-store {
+    color: var(--first-color);
+    font-size: var(--h2-font-size);
+}
+
+.employee-remove {
+    color: var(--first-color);
+    font-size: var(--h2-font-size);
+}
+
+.message {
+    text-align: center;
+    justify-content: center;
+}
+
+.msg-text {
+    color: var(--first-color);
+    font-size: var(--h2-font-size);
+}
+
+.product {
+    background-color: var(--container-color);
+    margin: 1rem;
+    padding: 1rem;
+}

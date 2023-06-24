@@ -1,0 +1,11 @@
+{% include 'stores/partials/_head.html' %}
+<body>
+    <section class="section">
+        <div class="links">
+            <a href="{% url 'stores:index' %}">Index</a>
+            <a href="{% url 'stores:add_employee' %}">Add</a>
+            <a href="{% url 'stores:logout' %}">Logout</a>
+        </div>
+    </section>
+</body>
+</html>

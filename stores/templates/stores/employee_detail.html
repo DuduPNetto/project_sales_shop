@@ -1,0 +1,32 @@
+{% include 'stores/partials/_head.html' %}
+<body>
+    <section class="section">
+        <div class="links">
+            <a href="{% url 'stores:index' %}">Index</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'stores:add_employee' %}">Add</a>
+                <a href="{% url 'stores:logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'stores:login' %}">Login</a>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="section details">
+        <h1 class="detail-name">
+            {{ employee.name }}
+        </h1>
+        <div class="detail-info">
+            <h2 class="detail-age">Age: {{ employee.age }}</h2>
+            <h2 class="detail-function">Function: {{ employee.function }}</h2>
+            <h2 class="detail-store">Store: {{ employee.store }}</h2>
+        </div>
+        <div class="employee-remove">
+            {% if user.is_authenticated and employee.id != 1 %}
+                <a href="{% url 'stores:remove_employee' employee.id %}">Remove</a>
+            {% endif %}
+        </div>
+    </section>
+
+</body>
+</html>
