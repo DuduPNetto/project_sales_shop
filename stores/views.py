@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import Http404
-from django.contrib import auth, messages
+from django.contrib import auth
 from stores import models
 from stores.forms import AddEmployeeForm, AddProductForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -173,9 +173,7 @@ def login(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            messages.success(request, 'Success: login')
             return redirect('stores:index')
-        messages.error(request, 'Invalid: login')
 
     return render(
         request,
