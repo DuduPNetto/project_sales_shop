@@ -109,11 +109,9 @@ def remove_product(request, _id):
 @login_required(login_url="stores:login")
 def all_employees(request):
     employees = models.Employee.objects.all()
-    store = models.Store.objects.get()
 
     context = {
-        'employees': employees,
-        'store_title': store.name
+        'employees': employees
     }
 
     return render(

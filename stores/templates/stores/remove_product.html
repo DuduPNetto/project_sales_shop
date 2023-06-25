@@ -1,25 +1,38 @@
 {% include 'stores/partials/_head.html' %}
 <body>
-    <section class="section">
-        <div class="links">
-            <a href="{% url 'stores:index' %}">Index</a>
-            <a href="{% url 'stores:add_product' %}">Add</a>
-            <a href="{% url 'stores:logout' %}">Logout</a>
-        </div>
-    </section>
+
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list">
+                    <li class="nav_item">
+                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Index</a>
+                    </li>
+
+                    <li class="nav_item">
+                        <a href="{% url 'stores:add_product' %}" class="nav_link">Add Product</a>
+                    </li>
+
+                    <li class="nav_item">
+                        <a href="{% url 'stores:logout' %}" class="nav_link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <section class="section">
-        <div class="contact-options">
+        <div class="form-remove">
+            <h1 class="product_name">Delete: {{ product.name }}</h1>
             <form action="{% url 'stores:remove_product' product.id %}" method="POST">
                 {% csrf_token %}
                 {% if confirmation == 'no' %}
                     <input type="hidden" name="confirmation" value="yes">
                     <button class="btn btn-option btn-delete" type="submit">Confirm?</button>
-                {% else %}
-                    <button class="btn btn-option btn-delete" type="submit">Delete</button>
                 {% endif %}
             </form>
         </div>
     </section>
+
 </body>
 </html>

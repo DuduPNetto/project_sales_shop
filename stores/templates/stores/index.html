@@ -1,15 +1,30 @@
 {% include 'stores/partials/_head.html' %}
 <body>
-    <header class="header">
-        <nav class="nav-links">
-            <a class="nav-link" href="{% url 'stores:index' %}">Index</a>
-            {% if user.is_authenticated %}
-                <a class="nav-link" href="{% url 'stores:add_product' %}">Add Product</a>
-                <a class="nav-link" href="{% url 'stores:all_employees' %}">Employees</a>
-                <a class="nav-link" href="{% url 'stores:logout' %}">Logout</a>
-            {% else %}
-                <a class="nav-link" href="{% url 'stores:login' %}">Login</a>
-            {% endif %}
+
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list">
+                    <li class="nav_item">
+                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Index</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav_item">
+                            <a href="{% url 'stores:add_product' %}" class="nav_link">Add Product</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="{% url 'stores:all_employees' %}" class="nav_link">Employees</a>
+                        </li>
+                        <li class="nav_item">
+                            <a href="{% url 'stores:logout' %}" class="nav_link">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav_item">
+                            <a href="{% url 'stores:login' %}" class="nav_link">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -36,5 +51,34 @@
             </div>
         {% endfor %}
     </section>
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div>
+                <h1 class="footer_title">
+                    {{ store.name }}
+                </h1>
+                <h2 class="footer_description">{{ store.description }}</h2>
+            </div>
+
+            <div class="footer_social">
+                <a href="https://github.com/DuduPNetto" target="_blank" class="footer-link">
+                    <i class="ri-github-fill"></i>
+                </a>
+
+                <a href="https://www.instagram.com/eduardo_pianovski/" target="_blank" class="footer-link">
+                    <i class="ri-instagram-line"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/eduardo-netto-357320269/" target="_blank" class="footer-link">
+                    <i class="ri-linkedin-box-line"></i>
+                </a>
+            </div>
+
+            <span class="footer_copy">
+                &copy; Copyright EPN. All rights reserved.
+            </span>
+        </div>
+    </footer>
 </body>
 </html>
