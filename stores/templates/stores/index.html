@@ -1,35 +1,37 @@
 {% include 'stores/partials/_head.html' %}
 <body>
-    <section class="section">
-        <div class="links">
-            <a href="{% url 'stores:index' %}">Index</a>
+    <header class="header">
+        <nav class="nav-links">
+            <a class="nav-link" href="{% url 'stores:index' %}">Index</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'stores:add_product' %}">Add Product</a>
-                <a href="{% url 'stores:all_employees' %}">Employees</a>
-                <a href="{% url 'stores:logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'stores:add_product' %}">Add Product</a>
+                <a class="nav-link" href="{% url 'stores:all_employees' %}">Employees</a>
+                <a class="nav-link" href="{% url 'stores:logout' %}">Logout</a>
             {% else %}
-                <a href="{% url 'stores:login' %}">Login</a>
+                <a class="nav-link" href="{% url 'stores:login' %}">Login</a>
             {% endif %}
-        </div>
-    </section>
+        </nav>
+    </header>
 
     <section class="section products">
         {% for product in products %}
             <div class="product">
-                <h1>{{ product.name }}</h1>
-                <p>{{ product.short_description }}</p>
-                <p>{{ product.long_description }}</p>
-                <h2>Price: {{ product.price }}</h2>
-                <h2>Stock: {{ product.stock }}</h2>
-                <h2>{{ product.store }}</h2>
+                <h1 class="p-text product-title">{{ product.name }}</h1>
+                <p class="p-text product-desc">{{ product.short_description }}</p>
+                <p class="p-text product-desc">{{ product.long_description }}</p>
+                <h2 class="p-text product-price">Price: {{ product.price }}</h2>
+                <h2 class="p-text product-stock">Stock: {{ product.stock }}</h2>
                 {% if product.image %}
-                    <p>
-                        <img src="{{ product.image.url }}" alt="{{ product.short_description }}">
-                    </p>
+                <p>
+                    <img class="product-image" src="{{ product.image.url }}" alt="{{ product.short_description }}">
+                </p>
                 {% endif %}
+                <h2 class="p-text product-store">{{ product.store }}</h2>
                 {% if user.is_authenticated %}
-                    <a href="{% url 'stores:remove_product' product.id %}">Remove</a>
-                    <a href="{% url 'stores:update_product' product.id %}">Update</a>
+                    <div class="product-links">
+                        <a class="product-link" href="{% url 'stores:remove_product' product.id %}">Remove</a>
+                        <a class="product-link" href="{% url 'stores:update_product' product.id %}">Update</a>
+                    </div>
                 {% endif %}
             </div>
         {% endfor %}
