@@ -56,8 +56,39 @@ def add_product(request):
 
 
 @login_required(login_url="stores:login")
-def remove_product(request, id):
-    product = get_object_or_404(models.StoreProduct, pk=id)
+def update_product(request, _id):
+    product = get_object_or_404(models.StoreProduct, pk=_id)
+
+    form = AddProductForm(instance=product)
+
+    if request.method == 'POST':
+        form = AddProductForm(
+            data=request.POST, files=request.FILES, instance=product)
+
+        if form.is_valid():
+            form.save()
+            return redirect('stores:update_product', _id=product.pk)
+
+        return render(
+            request,
+            'stores/add_product.html',
+            {
+                'form': form,
+            }
+        )
+
+    return render(
+        request,
+        'stores/add_product.html',
+        {
+            'form': form,
+        }
+    )
+
+
+@login_required(login_url="stores:login")
+def remove_product(request, _id):
+    product = get_object_or_404(models.StoreProduct, pk=_id)
 
     confirmation = request.POST.get('confirmation', 'no')
 
@@ -127,6 +158,38 @@ def add_employee(request):
     )
 
 
+@login_required(login_url="stores:login")
+def update_employee(request, _id):
+    employee = get_object_or_404(models.Employee, pk=_id)
+
+    form = AddEmployeeForm(instance=employee)
+
+    if request.method == 'POST':
+        form = AddEmployeeForm(
+            data=request.POST, files=request.FILES, instance=employee)
+
+        if form.is_valid():
+            form.save()
+            return redirect('stores:update_employee', _id=employee.pk)
+
+        return render(
+            request,
+            'stores/add_employee.html',
+            {
+                'form': form,
+            }
+        )
+
+    return render(
+        request,
+        'stores/add_employee.html',
+        {
+            'form': form,
+        }
+    )
+
+
+@login_required(login_url="stores:login")
 def employee_detail(request, _id):
     employee = get_object_or_404(models.Employee, pk=_id)
 

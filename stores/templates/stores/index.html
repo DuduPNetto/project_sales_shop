@@ -29,6 +29,7 @@
                 {% endif %}
                 {% if user.is_authenticated %}
                     <a href="{% url 'stores:remove_product' product.id %}">Remove</a>
+                    <a href="{% url 'stores:update_product' product.id %}">Update</a>
                 {% endif %}
             </div>
         {% endfor %}

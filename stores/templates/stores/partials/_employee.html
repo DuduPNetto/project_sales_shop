@@ -15,6 +15,7 @@
             <div class="employee-identify">
                 <a href="{% url 'stores:employee_detail' employee.id %}">Detail</a>
                 {% if employee.id != 1 and user.is_authenticated %}
+                    <a href="{% url 'stores:update_employee' employee.id %}">Update</a>
                     <a href="{% url 'stores:remove_employee' employee.id %}">Remove</a>
                 {% endif %}
                 <h2 class="employee-function">{{ employee.function }}</h2>

@@ -38,6 +38,3 @@ class StoreAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name', 'owner',)
     search_fields = ('id', 'name', 'owner',)
     inlines = (EmployeeInline, StoreProductInline)
-
-    def has_add_permission(self, request: HttpRequest) -> bool:
-        return not models.Store.objects.exists()
