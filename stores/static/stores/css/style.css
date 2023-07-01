@@ -131,6 +131,7 @@ body {
 .product-image {
     justify-self: center;
     padding: 1rem;
+    max-width: 100%;
 }
 
 .product-links {
