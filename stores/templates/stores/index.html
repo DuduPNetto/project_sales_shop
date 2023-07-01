@@ -6,7 +6,7 @@
             <div class="nav_menu" id="nav-menu">
                 <ul class="nav_list">
                     <li class="nav_item">
-                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Index</a>
+                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Products</a>
                     </li>
                     {% if user.is_authenticated %}
                         <li class="nav_item">
@@ -52,33 +52,7 @@
         {% endfor %}
     </section>
 
-    <footer class="footer">
-        <div class="footer_container">
-            <div>
-                <h1 class="footer_title">
-                    {{ store.name }}
-                </h1>
-                <h2 class="footer_description">{{ store.description }}</h2>
-            </div>
-
-            <div class="footer_social">
-                <a href="https://github.com/DuduPNetto" target="_blank" class="footer-link">
-                    <i class="ri-github-fill"></i>
-                </a>
-
-                <a href="https://www.instagram.com/eduardo_pianovski/" target="_blank" class="footer-link">
-                    <i class="ri-instagram-line"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/in/eduardo-netto-357320269/" target="_blank" class="footer-link">
-                    <i class="ri-linkedin-box-line"></i>
-                </a>
-            </div>
-
-            <span class="footer_copy">
-                &copy; Copyright EPN. All rights reserved.
-            </span>
-        </div>
-    </footer>
+    {% include 'stores/partials/_footer.html' %}
+    
 </body>
 </html>

@@ -1,58 +1,75 @@
 {% include 'stores/partials/_head.html' %}
 <body>
-    <section class="section">
-        <div class="links">
-            <a href="{% url 'stores:index' %}">Index</a>
-            {% if user.is_authenticated %}
-                <a href="{% url 'stores:add_employee' %}">Add</a>
-                <a href="{% url 'stores:logout' %}">Logout</a>
-            {% else %}
-                <a href="{% url 'stores:login' %}">Login</a>
-            {% endif %}
-        </div>
-    </section>
 
-    {% if user.is_authenticated %}
-        <p>
-            Você fez login como {{ user.username }}.
-            Clique <a href="{% url 'stores:logout' %}">aqui</a>
-            para sair.
-        </p>
-    {% else %}
-        <form action="{{ form_action }}" method="POST">
-            {% csrf_token %}
-            <div class="form-content">
-                {% for field in form %}
-                    <div class="form-group">
-                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        {{ field }}
-                        {{ field.errors }}
-
-                        {% if field.help_text %}
-                            <p class="help-text">
-                                {{ field.help_text }}
-                            </p>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list">
+                    <li class="nav_item">
+                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Products</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav_item">
+                            <a href="{% url 'stores:logout' %}" class="nav_link">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav_item">
+                            <a href="{% url 'stores:login' %}" class="nav_link">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
+        </nav>
+    </header>
 
-            {% if form.non_field_errors %}
+    <section class="section login">
+        {% if user.is_authenticated %}
+            <div class="login-content">
+                <p class="login-text">
+                    Logged as {{ user.username }}.
+                    Click <a href="{% url 'stores:logout' %}">here</a>
+                    to logout.
+                </p>
+            </div>
+        {% else %}
+            <form action="{{ form_action }}" method="POST">
+                {% csrf_token %}
                 <div class="form-content">
-                    <div class="form-group">
-                        <div class="message error">
-                            {{ form.non_field_errors }}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {{ field.errors }}
+    
+                            {% if field.help_text %}
+                                <p class="help-text">
+                                    {{ field.help_text }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+    
+                {% if form.non_field_errors %}
+                    <div class="form-content">
+                        <div class="form-group">
+                            <div class="message error">
+                                {{ form.non_field_errors }}
+                            </div>
                         </div>
                     </div>
+                {% endif %}
+    
+                <div class="form-content">
+                    <div class="form-group">
+                        <button class="btn" type="submit">Send</button>
+                    </div>
                 </div>
-            {% endif %}
+            </form>
+        {% endif %}
+    </section>
 
-            <div class="form-content">
-                <div class="form-group">
-                    <button class="btn" type="submit">Send</button>
-                </div>
-            </div>
-        </form>
-    {% endif %}
+    {% include 'stores/partials/_footer.html' %}
+
 </body>
 </html>

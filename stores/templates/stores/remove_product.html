@@ -6,7 +6,7 @@
             <div class="nav_menu" id="nav-menu">
                 <ul class="nav_list">
                     <li class="nav_item">
-                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Index</a>
+                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Products</a>
                     </li>
 
                     <li class="nav_item">
@@ -21,7 +21,7 @@
         </nav>
     </header>
 
-    <section class="section">
+    <section class="section remove_section">
         <div class="form-remove">
             <h1 class="product_name">Delete: {{ product.name }}</h1>
             <form action="{% url 'stores:remove_product' product.id %}" method="POST">
@@ -33,6 +33,8 @@
             </form>
         </div>
     </section>
+
+    {% include 'stores/partials/_footer.html' %}
 
 </body>
 </html>

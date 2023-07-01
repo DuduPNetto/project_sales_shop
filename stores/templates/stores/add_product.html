@@ -1,45 +1,58 @@
 {% include 'stores/partials/_head.html' %}
 <body>
-    <section class="section">
-        <div class="links">
-            <a href="{% url 'stores:index' %}">Index</a>
-            <a href="{% url 'stores:logout' %}">Logout</a>
-        </div>
-    </section>
 
-    <form action="{{ form_action }}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-content">
-            {% for field in form %}
-                <div class="form-group">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field }}
-                    {{ field.errors }}
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list">
+                    <li class="nav_item">
+                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Products</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="{% url 'stores:logout' %}" class="nav_link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-                    {% if field.help_text %}
-                        <p class="help-text">
-                            {{ field.help_text }}
-                        </p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-
-        {% if form.non_field_errors %}
+    <section class="section form-product">
+        <form action="{{ form_action }}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="form-content">
-                <div class="form-group">
-                    <div class="message error">
-                        {{ form.non_field_errors }}
+                {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {{ field.errors }}
+    
+                        {% if field.help_text %}
+                            <p class="help-text">
+                                {{ field.help_text }}
+                            </p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+    
+            {% if form.non_field_errors %}
+                <div class="form-content">
+                    <div class="form-group">
+                        <div class="message error">
+                            {{ form.non_field_errors }}
+                        </div>
                     </div>
                 </div>
+            {% endif %}
+    
+            <div class="form-content">
+                <div class="form-group">
+                    <button class="btn" type="submit">Send</button>
+                </div>
             </div>
-        {% endif %}
+        </form>
+    </section>
 
-        <div class="form-content">
-            <div class="form-group">
-                <button class="btn" type="submit">Send</button>
-            </div>
-        </div>
-    </form>
+    {% include 'stores/partials/_footer.html' %}
 </body>
 </html>
