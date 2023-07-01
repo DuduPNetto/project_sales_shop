@@ -8,4 +8,4 @@ Produtos -> Qualquer usuário, logado ou não pode ver na página inicial, mas s
 
 # TO DO:
 
-Usuários -> Pessoas com cargo mais alto, capaz de adicionar funcionários e produtos, similar a um admin.
+Usuários -> Pessoas com cargo mais alto, capaz de adicionar, remover e atualizar funcionários e produtos, similar a um admin.
