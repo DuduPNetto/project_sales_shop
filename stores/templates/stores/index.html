@@ -5,9 +5,6 @@
         <nav class="nav-container">
             <div class="nav_menu" id="nav-menu">
                 <ul class="nav_list">
-                    <li class="nav_item">
-                        <a href="{% url 'stores:index' %}" class="nav_link active-link">Products</a>
-                    </li>
                     {% if user.is_authenticated %}
                         <li class="nav_item">
                             <a href="{% url 'stores:add_product' %}" class="nav_link">Add Product</a>
