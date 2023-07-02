@@ -30,7 +30,7 @@
                     <h2 class="detail-store">Store: {{ employee.store }}</h2>
                 </div>
                 <div class="employee-remove">
-                    {% if user.is_authenticated and employee.id != 1 %}
+                    {% if user.is_authenticated and employee.function != 'Owner' %}
                         <a class="btn-remove-employee" href="{% url 'stores:remove_employee' employee.id %}">Remove</a>
                     {% endif %}
                 </div>

@@ -203,10 +203,10 @@ def employee_detail(request, _id):
 @login_required(login_url="stores:login")
 def remove_employee(request, _id):
 
-    if _id == 1:
-        raise Http404()
-
     employee = get_object_or_404(models.Employee, pk=_id)
+
+    if employee.function == 'Owner':
+        raise Http404()
 
     confirmation = request.POST.get('confirmation', 'no')
 
