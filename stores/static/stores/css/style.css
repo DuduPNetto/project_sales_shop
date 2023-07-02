@@ -303,6 +303,21 @@ body {
     border: 1px solid var(--first-color-alt);
 }
 
+.btn-remove-employee {
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 15px;
+    border: 1px solid black;   
+    background-color: var(--container-color);
+    font-size: var(--title-font-size);
+    box-shadow: 3px 2px 5px var(--box-shadow-color);
+    color: var(--first-color);
+}
+
+.btn-remove-employee:hover {
+    border: 1px solid var(--first-color-alt);
+}
+
 .login {
     padding-block: 5rem 2rem;
     padding-bottom: 6.75rem;
@@ -347,6 +362,11 @@ body {
     column-gap: 1.5rem;
     justify-content: center;
     align-items: center;
+    width: 17.2rem;
+}
+
+.employee-identify-start {
+    justify-content: start;
 }
 
 .employee-link {
@@ -436,6 +456,63 @@ body {
 
 }
 
+@media screen and (min-width: 801px) and (max-width: 940px) {
+    
+    .employees {
+        margin: 1.5rem 2rem;
+    }
+    
+    .employee-card {
+        font-size: var(--small-font-size);
+    }
+    
+    .employee-identify {
+        column-gap: 1rem;
+        width: 15rem;
+    }
+    
+    .employee-link {
+        font-size: var(--small-font-size);
+    }
+
+}
+
+@media screen and (min-width: 530px) and (max-width: 800px) {
+
+    .employee-identify {
+        width: 10rem;
+    }
+
+    .employee-id,
+    .employee-name,
+    .employee-function {
+        font-size: var(--small-font-size);
+    }
+    
+    .employee-card {
+        font-size: var(--smaller-font-size);
+    }
+
+    .employee-links {
+        display: flex;
+        column-gap: 0.5rem;
+    }
+    
+    .employee-link {
+        padding: 0.2rem;
+        font-size: var(--smaller-font-size);
+    }
+
+    .employee-detail {
+        font-size: var(--text-font-size);
+    }
+    
+    .detail-info {
+        font-size: var(--medium-font-size);
+    }
+
+}
+
 @media screen and (max-width: 640px) {
     
     .nav-container {
@@ -500,6 +577,52 @@ body {
 
 }
 
+@media screen and (min-width: 420px) and (max-width: 530px) {
+
+    .employee-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: var(--small-font-size);
+    }
+
+    .employee-identify {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .employee-id,
+    .employee-name,
+    .employee-function {
+        margin: 1rem 0;
+    }
+
+    .employee-links {
+        margin: 1rem 0;
+    }
+
+    .employee-link {
+        font-size: var(--medium-font-size);
+        padding: 0.5rem;
+    }
+    
+    .employee-detail {
+        font-size: var(--medium-font-size);
+    }
+    
+    .detail-info {
+        font-size: var(--small-font-size);
+    }
+
+    .btn-remove-employee {
+        padding: 0.5rem;
+        font-size: var(--medium-font-size);
+    }
+    
+}
+
 @media screen and (max-width: 420px) {
     
     .nav-container {
@@ -526,6 +649,63 @@ body {
 
     .form-remove {
         margin-top: 6.5rem;
+    }
+
+    .employees {
+        margin-top: 7rem;
+    }
+
+    .employee-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: var(--small-font-size);
+        width: 100%;
+    }
+
+    .employee-identify {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .employee-id,
+    .employee-name,
+    .employee-function {
+        margin: 0.75rem 0;
+    }
+
+    .employee-links {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        row-gap: 1rem;
+        margin: 0.75rem 0;
+    }
+
+    .employee-link {
+        font-size: var(--medium-font-size);
+        padding: 0.5rem;
+    }
+
+    .detail {
+        margin-top: 5.5rem;
+        padding: 1.5rem;
+        padding-bottom: 2rem;
+    }
+
+    .employee-detail {
+        font-size: var(--smaller-font-size);
+    }
+    
+    .detail-info {
+        font-size: var(--smaller-font-size);
+    }
+
+    .btn-remove-employee {
+        padding: 0.5rem;
+        font-size: var(--small-font-size);
     }
 
 }

@@ -31,7 +31,7 @@
                 </div>
                 <div class="employee-remove">
                     {% if user.is_authenticated and employee.id != 1 %}
-                        <a class="btn" href="{% url 'stores:remove_employee' employee.id %}">Remove</a>
+                        <a class="btn-remove-employee" href="{% url 'stores:remove_employee' employee.id %}">Remove</a>
                     {% endif %}
                 </div>
             </div>
