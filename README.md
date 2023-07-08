@@ -6,6 +6,7 @@ Funcionários -> Pessoas cadastradas dentro do site, são exibidas na página pa
 
 Produtos -> Qualquer usuário, logado ou não pode ver na página inicial, mas somente usuários logados podem adicionar, remover e atualizar.
 
-# TO DO:
-
 Usuários -> Pessoas com cargo mais alto, capaz de adicionar, remover e atualizar funcionários e produtos, similar a um admin.
+
+# TO DO:
+Melhorar CSS
