@@ -1,0 +1,46 @@
+{% include 'users/partials/_head.html' %}
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list">
+                    <li class="nav_item">
+                        <a href="{% url 'users:add_user' %}" class="nav_link">Add User</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="{% url 'stores:logout' %}" class="nav_link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section users">
+        {% for user in users %}
+            <div class="user_info">
+                <div class="user_div">
+                    <h1 class="user_pk">{{ user.pk }}</h1>
+                    <h1 class="user_username">{{ user }}</h1>
+                </div>
+                <div class="user_div">
+                    <h2 class="user_name">{{ user.first_name }}</h1>
+                    <h2 class="user_name">{{ user.last_name }}</h1>
+                </div>
+                <div class="user_div">
+                    <h3 class="user_email">{{ user.email }}</h1>
+                </div>
+                <div class="user_links">
+                    {% if not user.is_superuser %}
+                        <a href="{% url 'users:update_user' user.pk %}" class="user_link">Update</a>
+                        <a href="{% url 'users:remove_user' user.pk %}" class="user_link">Remove</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+    </section>
+
+    {% include 'users/partials/_footer.html' %}
+    
+</body>
+</html>

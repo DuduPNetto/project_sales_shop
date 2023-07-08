@@ -226,22 +226,26 @@ def remove_employee(request, _id):
 
 def login(request):
 
-    form = AuthenticationForm(request)
-
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-        if form.is_valid():
-            user = form.get_user()
-            auth.login(request, user)
+        if not username or not password:
+            return redirect('stores:login')
+
+        user = auth.authenticate(
+            request, username=username, password=password
+        )
+
+        if user:
+            auth.login(request, user=user)
             return redirect('stores:index')
+        else:
+            return redirect('stores:login')
 
     return render(
         request,
-        'stores/login.html',
-        {
-            'form': form,
-        }
+        'stores/login.html'
     )
 
 

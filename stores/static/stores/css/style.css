@@ -267,6 +267,8 @@ body {
     width: 33%;
     padding: 0.5rem;
     color: var(--title-color);
+    justify-content: center;
+    align-content: center;
 }
 
 .form-group input,
@@ -419,6 +421,55 @@ body {
 
 .remove_section {
     margin-bottom: 10.5rem;
+}
+
+.users {
+    padding-block: 6rem 2rem;
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+}
+
+.user_info {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5rem;
+    margin-bottom: 1rem;
+    background-color: var(--container-color);
+    padding: 1rem;
+    padding-left: 2rem;
+    height: 6rem;
+}
+
+.user_div {
+    display: flex;
+    column-gap: 0.7rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.user_pk,
+.user_username,
+.user_name,
+.user_email {
+    font-size: var(--text-font-size);
+    color: var(--text-color);
+}
+
+.user_links {
+    display: flex;
+    column-gap: 1.5rem;
+    padding-right: 2rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_link {
+    text-decoration: none;
+    font-size: var(--medium-font-size);
+    color: var(--first-color-alt);
+    padding: 1rem;
 }
 
 @media screen and (max-width: 1280px) {
