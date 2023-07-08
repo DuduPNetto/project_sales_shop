@@ -92,7 +92,22 @@ def update_user(request, _id):
 
 @login_required(login_url='stores:login')
 def remove_user(request, _id):
+    user = get_object_or_404(User, pk=_id)
+
+    if user.is_superuser:
+        raise Http404
+
+    confirmation = request.POST.get('confirmation', 'no')
+
+    if confirmation == 'yes':
+        user.delete()
+        return redirect('users:index')
+
     return render(
         request,
-        ''
+        'users/remove_user.html',
+        {
+            'user': user,
+            'confirmation': confirmation,
+        }
     )

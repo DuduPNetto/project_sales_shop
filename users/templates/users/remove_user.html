@@ -1,0 +1,40 @@
+{% include 'users/partials/_head.html' %}
+<body>
+   
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list">
+                    <li class="nav_item">
+                        <a href="{% url 'users:index' %}" class="nav_link active-link">Users</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="{% url 'users:add_user' %}" class="nav_link">Add User</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="{% url 'stores:logout' %}" class="nav_link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section remove_section">
+        <div class="form-remove">
+            <h1 class="employee_name">Delete: {{ user.username }}</h1>
+            <form action="{% url 'users:remove_user' user.pk %}" method="POST">
+                {% csrf_token %}
+                {% if confirmation == 'no' %}
+                    <input type="hidden" name="confirmation" value="yes">
+                    <button class="btn btn-option btn-delete" type="submit">Confirm?</button>
+                {% else %}
+                    <button class="btn btn-option btn-delete" type="submit">Delete</button>
+                {% endif %}
+            </form>
+        </div>
+    </section>
+
+    {% include 'users/partials/_footer.html' %}
+    
+</body>
+</html>
